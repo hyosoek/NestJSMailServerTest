@@ -5,9 +5,10 @@ import { ConfigService } from '@nestjs/config';
 
 describe('MailService', () => {
   let service: MailService;
-  const mockMailerService = { sendMail: jest.fn() };
+  let mockMailerService = { sendMail: jest.fn() };
+
   // const mockConfigService = { get: jest.fn() }; // 개발자가 제어할 수 있는 값에 대해서는 모킹하지 않습니다. (테스트에서)
-  const configValue = 'tennfin1@gmail.com'; //실제 값을 대입
+  let configValue = 'tennfin1@gmail.com'; //실제 값을 대입
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

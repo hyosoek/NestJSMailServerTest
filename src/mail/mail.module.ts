@@ -23,6 +23,12 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
             user: configService.get<string>('GMAIL_SMTP_USER'),
             pass: configService.get<string>('GMAIL_SMTP_PASSWORD'),
           },
+
+          pool: true, // 연결 풀링 활성화
+          maxConnections: 10, // 최대 연결 수 (적절히 조절)
+          maxMessages: 10, // 연결당 최대 메시지 수 (적절히 조절)
+          rateLimit: 5, // 초당 최대 메시지 수 (서버 제한에 맞춰 조절)
+          rateLimitTimeout: 1000, // 제한 초과 시 대기 시간 (ms)
         },
         // defaults: {
         //   from: 'No Reply ' + configService.get<string>('GMAIL_SMTP_FROM'),

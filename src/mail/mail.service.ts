@@ -11,7 +11,7 @@ export class MailService {
 
   async sendEmail(address: string, mailTitle: string, mailContents: string) {
     await this.mailerService.sendMail({
-      to: address, // 배열가능
+      to: address,
       from: this.configService.get<string>('GMAIL_SMTP_USER'),
       subject: mailTitle,
       text: mailContents,
