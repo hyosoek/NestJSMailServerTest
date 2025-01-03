@@ -12,7 +12,20 @@ export class MailService {
   async sendEmail(address: string, mailTitle: string, mailContents: string) {
     await this.mailerService.sendMail({
       to: address,
-      from: this.configService.get<string>('GMAIL_SMTP_USER'),
+      // from: this.configService.get<string>('GMAIL_SMTP_USER'),
+      html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>버튼 예제</title>
+      </head>
+      <body>
+      
+        <button type="button">클릭하세요!</button>
+      
+      </body>
+      </html>
+  `, // HTML 콘텐츠
       subject: mailTitle,
       text: mailContents,
     });
