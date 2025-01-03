@@ -21,13 +21,12 @@ export class MailService {
       </head>
       <body>
       
-        <button type="button">클릭하세요!</button>
+        <button type="button">${mailContents}</button>
       
       </body>
       </html>
   `, // HTML 콘텐츠
       subject: mailTitle,
-      text: mailContents,
     });
   }
 }
