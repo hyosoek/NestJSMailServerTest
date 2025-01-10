@@ -8,7 +8,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     MailModule,
     ConfigModule.forRoot({
-      // envFilePath: '.env',
+      envFilePath: [],
       isGlobal: true, // 전역 모듈로 사용
     }),
   ],
